@@ -1,0 +1,7 @@
+name = "TalentIQ"
+[auth]
+enabled = true
+providers = ["email"]
+signup = "open"
+[ai]
+required = false

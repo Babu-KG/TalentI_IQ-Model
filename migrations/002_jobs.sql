@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS jobs (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), company_id text NOT NULL, title text NOT NULL, description text NOT NULL, weight_skill integer DEFAULT 40, weight_experience integer DEFAULT 25, weight_projects integer DEFAULT 20, weight_education integer DEFAULT 15, created_at timestamptz DEFAULT now())

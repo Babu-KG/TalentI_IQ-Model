@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS assessments (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), student_id text NOT NULL, skill text NOT NULL, score integer NOT NULL, details jsonb DEFAULT '{}', created_at timestamptz DEFAULT now())

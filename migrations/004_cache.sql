@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS ai_cache (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), cache_key text NOT NULL UNIQUE, response_text text NOT NULL, created_at timestamptz DEFAULT now())
