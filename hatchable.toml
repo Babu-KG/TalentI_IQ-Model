@@ -8,3 +8,48 @@ signup = "open"
 [ai]
 required = false
 description = "Optional AI career recommendations; local fallback remains available."
+
+[db.tables.profiles]
+read = "own"
+write = "own"
+
+[db.tables.resume_files]
+read = "own"
+write = "own"
+
+[db.tables.assessments]
+read = "own"
+write = "own"
+owner_column = "student_id"
+
+[db.tables.whatif_runs]
+read = "own"
+write = "own"
+owner_column = "student_id"
+
+[db.tables.recommendations]
+read = "own"
+write = "own"
+owner_column = "student_id"
+
+[db.tables.job_applications]
+read = "own"
+write = "own"
+owner_column = "student_id"
+
+[db.tables.whatif_runs]
+read = "own"
+write = "own"
+
+[db.tables.recommendations]
+read = "own"
+write = "own"
+
+[db.tables.job_applications]
+read = "own"
+write = "own"
+
+[db.tables.jobs]
+read = "public"
+write = "own"
+owner_column = "company_id"
