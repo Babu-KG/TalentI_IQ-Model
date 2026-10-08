@@ -10,7 +10,7 @@ required = false
 description = "Optional AI career recommendations; local fallback remains available."
 
 [db.tables.profiles]
-read = "own"
+read = "public"
 write = "own"
 
 [db.tables.resume_files]
