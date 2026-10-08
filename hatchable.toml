@@ -1,7 +1,10 @@
 name = "TalentIQ"
+
 [auth]
 enabled = true
 providers = ["email"]
 signup = "open"
+
 [ai]
 required = false
+description = "Optional AI career recommendations; local fallback remains available."

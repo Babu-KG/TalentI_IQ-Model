@@ -1,4 +1,3 @@
 import { db } from "hatchable";
-export const access="user";
-export const methods=["GET"];
-export default async function(req,res){const a=await db.query("SELECT COUNT(*)::int AS count FROM profiles WHERE role='student'");const j=await db.query("SELECT COUNT(*)::int AS count FROM jobs");const r=await db.query("SELECT skill,ROUND(AVG(score))::int AS score FROM assessments GROUP BY skill ORDER BY score DESC");res.json({student_count:a.rows[0].count,job_count:j.rows[0].count,assessment:r.rows})}
+
+export const access = "user";export const methods=["GET"];export default async function(req,res){const role=(await db.query("SELECT role FROM profiles WHERE user_id=$1",[req.user.id])).rows[0]?.role||"student";const students=(await db.query("SELECT COUNT(*)::int count FROM profiles WHERE role='student'")).rows[0].count;const jobs=(await db.query("SELECT COUNT(*)::int count FROM jobs")).rows[0].count;const apps=(await db.query("SELECT COUNT(*)::int count FROM job_applications")).rows[0].count;const scores=(await db.query("SELECT skill,ROUND(AVG(score))::int score,COUNT(*)::int attempts FROM assessments GROUP BY skill ORDER BY score DESC")).rows;res.json({role,student_count:students,job_count:jobs,application_count:apps,assessment_scores:scores})}
